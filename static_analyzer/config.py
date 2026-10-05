@@ -25,6 +25,7 @@ class Language(StrEnum):
     RUST = "rust"
     CSHARP = "csharp"
     CPP = "cpp"
+    BASH = "bash"
 
 
 class AdapterName(StrEnum):
@@ -39,6 +40,7 @@ class AdapterName(StrEnum):
     KOTLIN = "Kotlin"
     PHP = "PHP"
     RUST = "Rust"
+    BASH = "Bash"
 
 
 class SourceSuffix(StrEnum):
@@ -66,6 +68,8 @@ class SourceSuffix(StrEnum):
     HH = ".hh"
     HXX = ".hxx"
     H = ".h"
+    SH = ".sh"
+    BASH = ".bash"
 
 
 class JsxLanguageId(StrEnum):
@@ -104,6 +108,7 @@ LANGUAGE_EXTENSIONS: dict[Language, tuple[SourceSuffix, ...]] = {
     Language.PHP: (SourceSuffix.PHP,),
     Language.RUST: (SourceSuffix.RS,),
     Language.CSHARP: (SourceSuffix.CS,),
+    Language.BASH: (SourceSuffix.SH, SourceSuffix.BASH),
     Language.CPP: (
         SourceSuffix.CPP,
         SourceSuffix.CC,

@@ -153,7 +153,7 @@ codeboarding-render /path/to/analysis.json --format mdx --output-dir /path/to/do
 python codeboarding_cli/render.py ../../demo/markitdown/.codeboarding/analysis.json --format md
 ```
 
-`python -m infra.install` and `codeboarding-setup` download language server binaries to `~/.codeboarding/servers/`, shared across projects. Node.js (and its bundled `npm`) is required for the Python, TypeScript, JavaScript, and PHP language servers; if neither `node` nor `CODEBOARDING_NODE_PATH` is set, setup downloads a pinned Node.js runtime into `~/.codeboarding/servers/nodeenv/` automatically.
+`python -m infra.install` and `codeboarding-setup` download language server binaries to `~/.codeboarding/servers/`, shared across projects. Node.js (and its bundled `npm`) is required for the Python, TypeScript, JavaScript, PHP, and Bash language servers; if neither `node` nor `CODEBOARDING_NODE_PATH` is set, setup downloads a pinned Node.js runtime into `~/.codeboarding/servers/nodeenv/` automatically.
 
 ## Configuration
 
@@ -246,9 +246,10 @@ for the actual depth. Existing baseline loading behavior is unchanged: prefer
 
 ## Supported stack
 
-- Languages: Python, TypeScript, JavaScript, Java, Kotlin, Go, PHP, Rust, C#.
+- Languages: Python, TypeScript, JavaScript, Java, Kotlin, Go, PHP, Rust, C#, Bash.
   - Java needs a JDK (21 recommended).
   - Kotlin is analysed with JetBrains' [kotlin-lsp](https://github.com/Kotlin/kotlin-lsp) (about 360 MB with its own Java runtime, under the [JetBrains Free Plugin License](https://github.com/Kotlin/kotlin-lsp/blob/main/kotlin-vscode/LICENSE.txt)) and needs glibc 2.34 or newer on Linux. Kotlin calls into Java are not drawn yet.
+  - Bash: basic LSP symbol support for `.sh` and `.bash` files via `bash-language-server`; no extensionless script detection or Bash call-graph parsing yet.
 - LLM providers: OpenAI, Anthropic, Google, Vercel AI Gateway, AWS Bedrock, Ollama, OpenRouter, OrcaRouter, Requesty, LiteLLM proxy, and more.
 
 ## Examples
